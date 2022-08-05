@@ -28,12 +28,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("static");
     eleventyConfig.addPassthroughCopy("./src/assets/css/prism.css");
 
-    const jsAssetsFiles = "./src/**/*.js"
-    const cssAssetsFiles = "./src/assets/css/**/*.scss"
-    const mdAssetsFiles = "./src/**/*.md"
-    eleventyConfig.addWatchTarget(jsAssetsFiles)
-    eleventyConfig.addWatchTarget(cssAssetsFiles)
-    eleventyConfig.addWatchTarget(mdAssetsFiles)
+    eleventyConfig.addWatchTarget("./src/**/*.js")
+    eleventyConfig.addWatchTarget("./src/assets/css/**/*.scss")
+    eleventyConfig.addWatchTarget("./src/**/*.md")
 
     eleventyConfig.setLibrary("md", markdownLibrary);
 
