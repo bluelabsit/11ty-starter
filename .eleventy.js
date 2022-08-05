@@ -25,7 +25,7 @@ module.exports = function(eleventyConfig) {
         return [...tagSet];
     });
 
-    eleventyConfig.addPassthroughCopy("static");
+    eleventyConfig.addPassthroughCopy({"static": "/"});
     eleventyConfig.addPassthroughCopy("./src/assets/css/prism.css");
 
     eleventyConfig.setLibrary("md", markdownLibrary);
