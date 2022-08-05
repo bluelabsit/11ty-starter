@@ -11,7 +11,7 @@ if (isProd) {
 export default {
   input: './src/assets/js/index.js',
   output: {
-    file: './_site/assets/js/bundle.js',
+    file: './public/assets/js/bundle.js',
     format: 'iife'
   },
   plugins

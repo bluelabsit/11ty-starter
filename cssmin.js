@@ -2,10 +2,10 @@ const fs = require('fs')
 const CleanCss = require('clean-css');
 
 const DATAFILE =  '_data/csshash.json';
-const CSSFILE = '_site/assets/css/index.css'
+const CSSFILE = 'public/assets/css/index.css'
 
 const cssHash = JSON.parse(fs.readFileSync(DATAFILE, 'utf-8'));
-const MINIFIED_CSSFILE = `_site/assets/css/${cssHash.indexCSS}`;
+const MINIFIED_CSSFILE = `public/assets/css/${cssHash.indexCSS}`;
 
 const cssFile = fs.readFileSync(CSSFILE, 'utf-8');
 

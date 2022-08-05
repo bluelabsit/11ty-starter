@@ -56,7 +56,7 @@ src/assets/css
 
 src/assets/js - example index.js file. You can remove it, if you don't need js. Don't forget to remove `rollup`, `rollup-plugin-terser` and `@rollup/plugin-node-resolve` dependencies. Also remove `<script>` tag from `_includes/layouts/base.njk`
 
-static - static files are copied directly to `/_site`.
+static - static files are copied directly to `/public`.
 
 _data - data files with translations for each page, metadata and other stuff.
 
@@ -72,7 +72,7 @@ change path prefix option `--pathprefix=your-repo-name`
 
 ``` nginx
 domainname.com {
-    root * ~/_site # or whatever site directory
+    root * ~/public # or whatever site directory
     file_server
 
     handle_errors {
