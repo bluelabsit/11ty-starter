@@ -1,58 +1,20 @@
-const { DateTime } = require("luxon");
 const fs = require("fs");
 const { markdownLibrary } = require("./.markdown.js");
-const CleanCSS = require('clean-css');
 
 const eleventyPlugins = require("./config/plugins.js");
-// const filters = require("./config/filters.js");
+const eleventyFilters = require("./config/filters.js");
 
 module.exports = function(eleventyConfig) {
     // Init Plugins
     eleventyPlugins(eleventyConfig);
 
     // Add filters
+    eleventyFilters(eleventyConfig);
 
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
 
     eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
-
-    const getReadableDate = (locale, dateObj) => DateTime.fromJSDate(dateObj, {zone: 'utc', locale}).toFormat("dd LLL yyyy");
-
-    eleventyConfig.addFilter("ru_readableDate", dateObj => {
-        return getReadableDate('ru', dateObj);
-    });
-
-    eleventyConfig.addFilter("en_readableDate", dateObj => {
-        return getReadableDate('en', dateObj);
-    });
-
-    // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-    eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-        return DateTime.fromJSDate(dateObj, {zone: 'utc', locale: 'ru'}).toFormat('yyyy-LL-dd');
-    });
-
-    eleventyConfig.addFilter("head", (array, n) => {
-        if( n < 0 ) {
-            return array.slice(n);
-        }
-
-        return array.slice(0, n);
-    });
-
-    eleventyConfig.addFilter("min", (...numbers) => {
-        return Math.min.apply(null, numbers);
-    });
-
-    eleventyConfig.addFilter("filterTagList", tags => {
-        return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-    })
-
-    eleventyConfig.addFilter("keys", obj => Object.keys(obj));
-
-    eleventyConfig.addFilter("cssmin", (code) => {
-        return new CleanCSS({}).minify(code);
-    })
 
     eleventyConfig.addCollection("tagList", function(collection) {
         let tagSet = new Set();
