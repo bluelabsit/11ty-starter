@@ -1,5 +1,5 @@
 module.exports = {
-    en: {
-        tag: "tag",
-    }
+  en: {
+    tag: "tag",
+  }
 }

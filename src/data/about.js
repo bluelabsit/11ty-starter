@@ -1,5 +1,5 @@
 module.exports = {
-    en: {
-        title: "about me",
-    }
+  en: {
+    title: "about me",
+  }
 }

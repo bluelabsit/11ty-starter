@@ -1,7 +1,7 @@
 const fs = require('fs')
 const CleanCss = require('clean-css');
 
-const DATAFILE =  'src/data/csshash.json';
+const DATAFILE = 'src/data/csshash.json';
 const CSSFILE = 'public/css/app.css'
 
 const cssHash = JSON.parse(fs.readFileSync(DATAFILE, 'utf-8'));
