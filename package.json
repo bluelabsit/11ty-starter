@@ -6,7 +6,7 @@
     "clean": "rm -rf public",
     "hasher": "node csshash.js",
     "cssmin": "node cssmin.js",
-    "build": "npm-run-all clean hasher -p build:eleventy build:sass build:rollup",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production npm-run-all clean hasher -p build:eleventy build:sass build:rollup",
     "build:github": "npm-run-all clean hasher -p build:eleventy:pathPrefix build:sass build:rollup",
     "build:eleventy": "eleventy",
     "build:eleventy:pathPrefix": "eleventy --pathprefix=11ty-starter",
