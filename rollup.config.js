@@ -9,9 +9,9 @@ if (isProd) {
 }
 
 export default {
-  input: './src/assets/js/index.js',
+  input: './src/js/app.js',
   output: {
-    file: './public/assets/js/bundle.js',
+    file: './public/js/app.js',
     format: 'iife'
   },
   plugins

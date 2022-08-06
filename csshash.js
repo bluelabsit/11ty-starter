@@ -3,7 +3,7 @@ const { nanoid } = require('nanoid')
 
 const hash = nanoid();
 
-const DATAFILE =  '_data/csshash.json';
+const DATAFILE =  'src/data/csshash.json';
 const MINIFIED_CSSFILE = `index.${hash}.min.css`
 
 var jsonValue = `{

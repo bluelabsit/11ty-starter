@@ -1,9 +1,9 @@
 public/
 _cache/
 node_modules/
-_data/css.json
+/src/data/css.json
 
 *.log
 csshash
-_data/csshash.json
-_data/year.json
+/src/data/csshash.json
+/src/data/year.json

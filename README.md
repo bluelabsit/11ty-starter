@@ -1,12 +1,8 @@
-## 11ty-starter
+## Bluelabs 11ty-starter
 
-This is [eleventy](https://11ty.dev) starter.
+This is [eleventy](https://11ty.dev) starter by [Bluelabs](https://www.bluelabs.it).
 
 It uses [sass](https://sass-lang.com/), [nunjucks](https://mozilla.github.io/nunjucks/), [rollup](https://rollupjs.org/guide/en/).
-
-It also has i18n support.
-
-[DEMO](https://moody-person.github.io/11ty-starter/) on github pages
 
 ## Installation
 
@@ -28,9 +24,9 @@ src/en - put your pages here. For other language create directory named {lang}.j
 
 src/posts/en - your posts
 
-src/_includes/pages - pages layouts. Create your pages here and export them in src/en directory files.
+src/html/inc/pages - pages layouts. Create your pages here and export them in src/en directory files.
 
-src/_inlcudes/layouts - layouts.
+src/html/layouts - layouts.
 
 - `base.njk` - main layout with head, header, main, footer sections.
 - `post.njk` - layout for post using `base` layout.
@@ -39,7 +35,7 @@ src/_inlcudes/layouts - layouts.
 
 src/assets - your css and js
 
-src/assets/css
+src/css
 
 - `components` - sass components. `c` prefix.
 - `layouts` - grid, flexbox layouts. `l` prefix.
@@ -49,16 +45,15 @@ src/assets/css
 - `base.scss` - base html elements styles.
 - `functions.scss` - sass functions.
 - `mixins.scss` - sass mixins.
-- `prism.scss` - [prism](https://prismjs.com/) tomorrow night colorscheme
 - `reset.scss` - [reset](https://meyerweb.com/eric/tools/css/reset/)
 - `settings.scss` - css variables.
 - `variables.scss` - sass variables.
 
-src/assets/js - example index.js file. You can remove it, if you don't need js. Don't forget to remove `rollup`, `rollup-plugin-terser` and `@rollup/plugin-node-resolve` dependencies. Also remove `<script>` tag from `_includes/layouts/base.njk`
+src/js - example index.js file. You can remove it, if you don't need js. Don't forget to remove `rollup`, `rollup-plugin-terser` and `@rollup/plugin-node-resolve` dependencies. Also remove `<script>` tag from `html/inc/layouts/base.njk`
 
 static - static files are copied directly to `/public`.
 
-_data - data files with translations for each page, metadata and other stuff.
+src/data - data files with translations for each page, metadata and other stuff.
 
 ## Deploy
 

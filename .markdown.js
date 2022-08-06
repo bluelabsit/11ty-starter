@@ -2,20 +2,20 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 // const markdownItContainer = require("markdown-it-container");
 const fs = require("fs");
-
-const linkIcon = fs.readFileSync("./src/_includes/icons/link.svg");
-
-let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-    typographer: true,
-}).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: linkIcon
-});
+const eleventyConfig = require("./config/_eleventy.js");
+const linkIcon = fs.readFileSync(
+    `./${eleventyConfig.dir.input}/${eleventyConfig.dir.includes}/icons/link.svg`
+);
 
 module.exports = {
-    markdownLibrary
+    markdownLibrary: markdownIt({
+        html: true,
+        breaks: true,
+        linkify: true,
+        typographer: true,
+    }).use(markdownItAnchor, {
+        permalink: true,
+        permalinkClass: "direct-link",
+        permalinkSymbol: linkIcon
+    })
 }

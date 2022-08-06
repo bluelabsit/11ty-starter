@@ -1,5 +1,6 @@
 const { markdownLibrary } = require("./.markdown.js");
 
+const config = require("./config/_eleventy.js");
 const eleventyPlugins = require("./config/plugins.js");
 const eleventyFilters = require("./config/filters.js");
 const browserSync = require("./config/browserSync.js");
@@ -26,7 +27,6 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addPassthroughCopy({"static": "/"});
-    eleventyConfig.addPassthroughCopy("./src/assets/css/prism.css");
 
     eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -39,26 +39,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addWatchTarget("./src/**/*.js")
 
     // SCSS
-    eleventyConfig.addWatchTarget("./src/assets/css/**/*.scss")
+    eleventyConfig.addWatchTarget("./src/css/**/*.scss")
 
     // MD
     eleventyConfig.addWatchTarget("./src/**/*.md")
 
-    return {
-        templateFormats: [
-            "md",
-            "njk",
-            "html",
-        ],
-        pathPrefix: "/",
-        markdownTemplateEngine: "njk",
-        htmlTemplateEngine: "njk",
-        dataTemplateEngine: false,
-        dir: {
-            input: "src",
-            includes: "_includes",
-            data: "../_data",
-            output: 'public',
-        },
-    };
+    return config;
 };
