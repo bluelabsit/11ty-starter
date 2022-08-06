@@ -26,6 +26,7 @@ module.exports = function (eleventyConfig) {
     return [...tagSet];
   });
 
+  eleventyConfig.addPassthroughCopy({"src/img": "/img"});
   eleventyConfig.addPassthroughCopy({"static": "/"});
 
   eleventyConfig.setLibrary("md", markdownLibrary);
