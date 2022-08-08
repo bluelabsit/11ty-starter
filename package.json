@@ -11,11 +11,11 @@
     "build:eleventy": "eleventy",
     "build:eleventy:pathPrefix": "eleventy --pathprefix=11ty-starter",
     "build:sass": "sass src/css/app.scss public/css/app.css && npm run cssmin",
-    "build:rollup": "NODE_ENV=production rollup -c",
+    "build:rollup": "NODE_ENV=production rollup -c config/rollup.config.js",
     "dev": "npm-run-all clean hasher -p dev:*",
     "dev:sass": "sass --watch src/css/app.scss public/css/app.css",
     "dev:eleventy": "eleventy --serve --port=3000",
-    "dev:rollup": "rollup -c -w",
+    "dev:rollup": "rollup -c config/rollup.config.js -w",
     "debug": "DEBUG=* eleventy"
   },
   "repository": {
