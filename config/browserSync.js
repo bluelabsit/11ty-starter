@@ -31,8 +31,8 @@ module.exports = {
   },
   ui: false,
   ghostMode: false,
-  snippet: true,
-  notify: true,
+  snippet: process.env.ELEVENTY_DEBUG ?? true,
+  notify: process.env.ELEVENTY_DEBUG ?? true,
   host: process.env.SERVER_HOST || 'localhost',
   port: process.env.SERVER_PORT || 3000,
   https
