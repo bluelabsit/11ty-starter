@@ -1,6 +1,6 @@
 {% from 'macros/helpers.njk' import sprite %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ locale or 'en' }}">
 <head>
   {%- block head -%}
     {% block head_after_start %}{% endblock %}
