@@ -31,6 +31,9 @@
 
     <link rel="canonical" href="{{ page.url | urlAbsolute }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if env.ELEVENTY_ENV === 'development' or env.ELEVENTY_DEBUG %}
+      <meta name="eleventy.page.url" content="{{ page.url }}">
+    {% endif %}
     {% include "shared/app-icons.njk" %}
     {%- block head_before_end -%}{%- endblock -%}
   {%- endblock -%}
