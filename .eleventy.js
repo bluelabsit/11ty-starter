@@ -1,6 +1,6 @@
 require('dotenv').config();
 const config = require("./config/_eleventy.js");
-const {markdownLibrary} = require("./.markdown.js");
+const {markdownLibrary} = require("./config/.markdown.js");
 const eleventyPlugins = require("./config/plugins.js");
 const eleventyFilters = require("./config/filters.js");
 const browserSync = require("./config/browserSync.js");
