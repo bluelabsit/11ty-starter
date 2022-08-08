@@ -7,7 +7,7 @@
     "hasher": "node config/csshash.js",
     "cssmin": "node config/cssmin.js",
     "build": "NODE_ENV=production ELEVENTY_ENV=production npm-run-all clean hasher -p build:eleventy build:sass build:rollup",
-    "build:github": "npm-run-all clean hasher -p build:eleventy:pathPrefix build:sass build:rollup",
+    "build:github": "NODE_ENV=production ELEVENTY_ENV=production npm-run-all clean hasher -p build:eleventy:pathPrefix build:sass build:rollup",
     "build:eleventy": "eleventy",
     "build:eleventy:pathPrefix": "eleventy --pathprefix=11ty-starter",
     "build:sass": "sass src/css/app.scss public/css/app.css && npm run cssmin",
