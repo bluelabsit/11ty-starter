@@ -364,3 +364,6 @@ csshash
 /src/data/csshash.json
 /src/data/year.json
 .env
+
+server.crt
+server.key

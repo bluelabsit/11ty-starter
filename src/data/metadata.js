@@ -1,4 +1,4 @@
-const url = process.env.URL ?? "https://example.com";
+const url = process.env.URL ?? "http://localhost:3000";
 const title = "Bluelabs Eleventy starter";
 
 module.exports = {
