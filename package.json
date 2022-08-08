@@ -46,5 +46,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.46.0",
     "slugify": "^1.6.5"
+  },
+  "dependencies": {
+    "dotenv-expand": "^8.0.3"
   }
 }

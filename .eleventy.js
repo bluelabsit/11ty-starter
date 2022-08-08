@@ -1,4 +1,8 @@
-require('dotenv').config();
+const dotenv = require('dotenv')
+const dotenvExpand = require('dotenv-expand')
+const myEnv = dotenv.config()
+dotenvExpand.expand(myEnv)
+
 const config = require("./config/_eleventy.js");
 const {markdownLibrary} = require("./config/.markdown.js");
 const eleventyServer = require("./config/server.js");
