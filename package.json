@@ -14,7 +14,7 @@
     "build:rollup": "NODE_ENV=production rollup -c config/rollup.config.js",
     "dev": "npm-run-all clean hasher -p dev:*",
     "dev:sass": "sass --watch src/css/app.scss public/css/app.css",
-    "dev:eleventy": "eleventy --serve --port=3000",
+    "dev:eleventy": "eleventy --serve",
     "dev:rollup": "rollup -c config/rollup.config.js -w",
     "debug": "DEBUG=* eleventy"
   },
