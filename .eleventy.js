@@ -1,6 +1,7 @@
 require('dotenv').config();
 const config = require("./config/_eleventy.js");
 const {markdownLibrary} = require("./config/.markdown.js");
+const eleventyServer = require("./config/server.js");
 const eleventyPlugins = require("./config/plugins.js");
 const eleventyFilters = require("./config/filters.js");
 const browserSync = require("./config/browserSync.js");
@@ -8,6 +9,9 @@ const browserSync = require("./config/browserSync.js");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('env', process.env);
   eleventyConfig.addGlobalData('config', config);
+
+  // Server
+  eleventyServer(eleventyConfig);
 
   // Init Plugins
   eleventyPlugins(eleventyConfig);
