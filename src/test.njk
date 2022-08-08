@@ -1,5 +1,4 @@
 {% extends "layouts/app.njk" %}
-{% set title = 'Ciao' %}
 
 {% block content %}
   <div class="container">
@@ -8,6 +7,12 @@
         <h1>Pippo</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eius eum iste laborum molestiae nobis quos
           tenetur vitae. Debitis illo impedit rem. Asperiores aut explicabo, nesciunt nisi odit reiciendis sint.</p>
+
+        {{ metadata | dump }}
+
+        {% for page in collections.all %}
+          {{ page.url | dump }}
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -1,10 +1,18 @@
 const url = process.env.URL ?? "https://example.com";
-const title = "Eleventy starter";
+const title = "Bluelabs Eleventy starter";
 
 module.exports = {
+  title,
+  url,
+  pages: {
+    '/test/': {
+      title: "Pagina di test",
+      description: "Questa è una Pagina di test",
+    }
+  },
   en: {
     url,
-    title,
+    title: title,
     description: "TODO",
     feed: {
       subtitle: "TODO",

@@ -2,21 +2,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}{{ title }}{% endblock %}</title>
-  {% if projEnv.eleventy === "production" %}
-    {% set link = "/css/" + csshash.indexCSS %}
-    <link rel="preload" href="{{ link | url }}" as="style"/>
-    <link rel="stylesheet" href="{{ link  | url }}" type="text/css"/>
-  {% else %}
-    <link rel="stylesheet" href="/css/app.css" type="text/css"/>
-  {% endif %}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% include "shared/app-icons.njk" %}
-  {% block head %}{% endblock %}
+  {%- block head -%}
+    {% block head_after_start %}{% endblock %}
+    <meta charset="utf-8">
+    {# Page meta title #}
+    <title>
+      {%- block meta_title -%}
+        {{ meta_title
+        or metadata.pages[page.url].title
+        or ( page.url | slug | deslug | capitalize) }}
+      {%- endblock -%}
+    </title>
+
+    {# Page meta description #}
+    {%- set _meta_description = meta_description or metadata.pages[page.url].description -%}
+    {%- if _meta_description %}
+      <meta name="description" content="{{ _meta_description }}">
+    {% endif -%}
+
+    {# CSS #}
+    {% if projEnv.eleventy === "production" %}
+      {% set link = "/css/" + csshash.indexCSS %}
+      <link rel="preload" href="{{ link | url }}" as="style"/>
+      <link rel="stylesheet" href="{{ link | url }}" type="text/css"/>
+    {% else %}
+      <link rel="stylesheet" href="/css/app.css" type="text/css"/>
+    {% endif %}
+
+    <link rel="canonical" href="{{ page.url | urlAbsolute }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "shared/app-icons.njk" %}
+    {%- block head_before_end -%}{%- endblock -%}
+  {%- endblock -%}
 </head>
 <body>
+{%- block body_after_start -%}{%- endblock -%}
 {% block content %}{% endblock %}
 {% block javascript %}<script src="/js/app.js"></script>{% endblock %}
+{%- block body_before_end -%}{%- endblock -%}
 </body>
 </html>
