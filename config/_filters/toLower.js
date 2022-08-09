@@ -1,3 +1,3 @@
 module.exports = (string) => {
-    return string.toLowerCase();
-}
+  return string.toLowerCase();
+};

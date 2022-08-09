@@ -1,18 +1,18 @@
-const dotenv = require('dotenv')
-const dotenvExpand = require('dotenv-expand')
-const myEnv = dotenv.config()
-dotenvExpand.expand(myEnv)
+const dotenv = require("dotenv");
+const dotenvExpand = require("dotenv-expand");
+const myEnv = dotenv.config();
+dotenvExpand.expand(myEnv);
 
 const config = require("./config/_eleventy.js");
-const {markdownLibrary} = require("./config/.markdown.js");
+const { markdownLibrary } = require("./config/.markdown.js");
 const eleventyServer = require("./config/server.js");
 const eleventyPlugins = require("./config/plugins.js");
 const eleventyFilters = require("./config/filters.js");
 const browserSync = require("./config/browserSync.js");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addGlobalData('env', process.env);
-  eleventyConfig.addGlobalData('config', config);
+  eleventyConfig.addGlobalData("env", process.env);
+  eleventyConfig.addGlobalData("config", config);
 
   // Server
   eleventyServer(eleventyConfig);
@@ -30,15 +30,15 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
-    collection.getAll().forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    collection.getAll().forEach((item) => {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
     });
 
     return [...tagSet];
   });
 
-  eleventyConfig.addPassthroughCopy({"src/img": "/img"});
-  eleventyConfig.addPassthroughCopy({"static": "/"});
+  eleventyConfig.addPassthroughCopy({ "src/img": "/img" });
+  eleventyConfig.addPassthroughCopy({ static: "/" });
 
   eleventyConfig.setLibrary("md", markdownLibrary);
 
@@ -48,13 +48,13 @@ module.exports = function (eleventyConfig) {
    * Watchers
    */
   // JS
-  eleventyConfig.addWatchTarget("./src/**/*.js")
+  eleventyConfig.addWatchTarget("./src/**/*.js");
 
   // SCSS
-  eleventyConfig.addWatchTarget("./src/css/**/*.scss")
+  eleventyConfig.addWatchTarget("./src/css/**/*.scss");
 
   // MD
-  eleventyConfig.addWatchTarget("./src/**/*.md")
+  eleventyConfig.addWatchTarget("./src/**/*.md");
 
   return config;
 };

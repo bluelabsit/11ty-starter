@@ -1,1 +1,1 @@
-console.log("%cHELLO, WORLD!!!", "color: green");
+console.log('%cHELLO, WORLD!!!', 'color: green');

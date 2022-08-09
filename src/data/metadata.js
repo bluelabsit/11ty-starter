@@ -5,9 +5,9 @@ module.exports = {
   title,
   url,
   pages: {
-    '/test/': {
+    "/test/": {
       title: "Pagina di test",
       description: "Questa è una Pagina di test",
-    }
-  }
+    },
+  },
 };
