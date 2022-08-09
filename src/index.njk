@@ -1,0 +1,38 @@
+---
+meta_title: Bluelabs Eleventy starter kit
+meta_description: A static site generator for modern web development.
+---
+{% extends "layouts/app.njk" %}
+
+{% block content %}
+  <div class="bl-eleventy__container">
+    <div class="bl-eleventy__intro">
+
+      <h1>
+        <a href="https://11ty.dev" target="_blank">Eleventy</a>
+        Starter Kit
+        <small>by
+          <a class="bluelabs-logo" href="https://www.bluelabs.it" target="_blank">
+            Bluelabs
+          </a>
+        </small>
+      </h1>
+
+      <p>It uses
+        <a href="https://sass-lang.com/" target="_blank">sass</a>,
+        <a href="https://mozilla.github.io/nunjucks/" target="_blank">nunjucks</a>,
+        <a href="https://rollupjs.org/guide/en/" target="_blank">rollup</a>.
+      </p>
+
+      <ul class="bl-eleventy__intro__links">
+        <li>
+          <a href="https://github.com/bluelabsit/11ty-starter" target="_blank">
+            {% include 'icons/brand-github.svg' %}
+            <span>Github</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
