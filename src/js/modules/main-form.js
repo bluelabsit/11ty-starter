@@ -1,27 +1,8 @@
-/*
- * Xeader Studios
- *
- * NOTICE OF LICENCE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt
- * It is also available through th world-wide-web at this URL:
- * https://xeader.com/LICENCE-CE.txt
- *
- * @category telethon-landings
- * @package telethon-landings
- *
- * @author Antonio Gatta <a.gatta@xeader.com>
- * @url http://xeader.com
- * @copyright Copyright (c) 2019 Xeader Studios
- * @license All right reserved
- */
-
-import Vue from 'vue/dist/vue.common.js'
-import { assignIn } from 'lodash'
+import Vue from 'vue/dist/vue.esm.browser.min.js'
+import { assignIn } from 'lodash-es'
 import { Power3 as ease, TweenLite } from 'gsap/all'
 import VeeValidate, { Validator } from 'vee-validate'
-import validateIt from 'vee-validate/dist/locale/it'
+import * as validateIt from 'vee-validate/dist/locale/it.js'
 import iban from 'iban'
 import { checkCF, checkPIVA } from '../lib/fatturaelettronica'
 import { GoogleAutocomplete } from '../lib/google-autocomplete/Components/googleAutocomplete'
@@ -64,7 +45,7 @@ Validator.extend('codicefiscale', {
   validate: (value) => checkCF(value),
 })
 
-export class MainForm {
+export default class MainForm {
   /** @type HTMLElement el */
   constructor(el) {
     this.el = el
@@ -76,10 +57,11 @@ export class MainForm {
 
     if (el.querySelector('.follow-button')) {
       window.addEventListener('scroll', () => {
-        const top = document.querySelector('.main-form').getBoundingClientRect().top
-        document
-          .querySelector('.follow-button')
-          .classList.toggle('disabled', top < window.innerHeight / 2)
+        const top = document.querySelector('.main-form')?.getBoundingClientRect().top
+        top &&
+          el
+            .querySelector('.follow-button')
+            .classList.toggle('disabled', top < window.innerHeight / 2)
       })
     }
 

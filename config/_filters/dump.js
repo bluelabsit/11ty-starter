@@ -3,7 +3,7 @@ const env = nunjucks.configure()
 
 module.exports = {
   name: 'dump',
-  render: (obj, format = true) => {
+  render: (obj, format = false) => {
     let response
 
     try {

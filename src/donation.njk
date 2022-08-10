@@ -21,7 +21,7 @@
             <form class="main-form" action="?"
                   data-module="main-form"
                   novalidate
-                  data-form="{{ form | dump }}"
+                  data-form='{{ global.form | dump }}'
                   @submit="onSubmit">
                 <button class="follow-button btn btn--submit scroll-to"
                         type="button" data-target=".main-form">Dona Ora</button>

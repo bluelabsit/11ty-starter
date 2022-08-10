@@ -1,27 +1,8 @@
-/*
- * Xeader Studios
- *
- * NOTICE OF LICENCE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt
- * It is also available through th world-wide-web at this URL:
- * https://xeader.com/LICENCE-CE.txt
- *
- * @category telethon-landings
- * @package telethon-landings
- *
- * @author Antonio Gatta <a.gatta@xeader.com>
- * @url http://xeader.com
- * @copyright Copyright (c) 2019 Xeader Studios
- * @license All right reserved
- */
-
-import { assignIn } from 'lodash'
-import { CountUp } from 'countup.js'
+import { assignIn } from 'lodash-es'
+import { CountUp } from 'countup.js/dist/countUp.umd.js'
 import Viewport from '../lib/Viewport'
 
-const Counter = class {
+export default class Counter {
   /** @type HTMLElement el */
   constructor(el) {
     this.el = el
@@ -52,9 +33,4 @@ const Counter = class {
     if (Math.floor(value) === parseFloat(value)) return 0
     return value.toString().split('.')[1].length || 0
   }
-}
-
-module.exports = {
-  __require: Counter,
-  Counter,
 }

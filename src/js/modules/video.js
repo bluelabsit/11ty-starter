@@ -1,23 +1,3 @@
-/*
- * Xeader Studios
- *
- * NOTICE OF LICENCE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt
- * It is also available through th world-wide-web at this URL:
- * https://xeader.com/LICENCE-CE.txt
- *
- * @category telethon-landings
- * @package telethon-landings
- *
- * @author Antonio Gatta <a.gatta@xeader.com>
- * @url http://xeader.com
- * @copyright Copyright (c) 2019 Xeader Studios
- * @license All right reserved
- */
-import config from '../../data/global'
-
 export class Video {
   /** @type HTMLElement el */
   constructor(el) {
@@ -27,6 +7,7 @@ export class Video {
     this.button = el.querySelector('button')
 
     // Show video controls only on small devices
+    const config = import('../../data/global.js')
     matchMedia('(max-width: ' + config.breakpoints.medium.max + ')').addListener(
       (mq) => (this.video.controls = mq.matches)
     )
