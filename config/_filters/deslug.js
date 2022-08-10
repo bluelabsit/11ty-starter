@@ -18,5 +18,5 @@
  */
 
 module.exports = function (str) {
-  return str.replace('-and-', ' & ').replace('--', '-').replace('-', ' ');
-};
+  return str.replace('-and-', ' & ').replace('--', '-').replace('-', ' ')
+}

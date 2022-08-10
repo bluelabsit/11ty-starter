@@ -1,0 +1,161 @@
+.page-content {
+  font-size: rem-calc(15);
+
+  p {
+    font-size: inherit;
+    margin: 1.5em auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: darken($green, 8%);
+    border-bottom: 1px solid $green;
+  }
+
+
+  h1,h2,h3{
+    font-family: $base-font-family;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 1.335em auto
+  }
+
+  h1{
+    font-size: rem-calc(32);
+  }
+
+  h2{
+    font-size: rem-calc(28);
+  }
+
+  h3{
+    font-size: rem-calc(24);
+  }
+
+  h4,h5,h6{
+    margin-bottom: auto;
+    & + p{
+      margin-top: auto;
+    }
+  }
+
+  figure{
+    margin: auto;
+  }
+  caption,
+  figcaption{
+    margin-top: 8px;
+    font-size: rem-calc(9);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    @include breakpoint(large up){
+      font-size: rem-calc(11);
+      margin-top: rem-calc(19);
+    }
+  }
+
+  hr{
+    margin: rem-calc(72) -10%;
+    border: none;
+    height: 1px;
+    background-color: rgba($black, .2);
+  }
+
+  blockquote {
+    @include flnm;
+    margin: rem-calc(60) auto;
+    font: rem-calc(34) $serif-font-family;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    color: $blue;
+    line-height: 1.2;
+
+    p {
+      padding-right: 10%;
+      margin-left: 1.5rem;
+      margin-bottom: 1em;
+
+      &:first-of-type {
+        position: relative;
+
+        &:before {
+          content: '“';
+          position: absolute;
+          right: 100%;
+          top: 0;
+          font-size: rem-calc(44);
+          margin-right: .125em;
+        }
+      }
+
+      &:last-of-type:after {
+        content: ' ”';
+      }
+
+      @include breakpoint(large up){
+        margin-bottom: rem-calc(48);
+      }
+    }
+
+    cite {
+      color: $black;
+      align-self: flex-end;
+      font-family: $base-font-family;
+      font-size: rem-calc(9);
+      font-style: normal;
+      font-weight: normal;
+      display: table;
+      border-top: 1px solid $green;
+      padding-top: 6px;
+      text-transform: uppercase;
+      line-height: 1.6;
+      letter-spacing: rem-calc(5);
+      text-align: right;
+      width: 109px;
+    }
+  }
+
+  .infographic{
+    @include breakpoint(large up) {
+      width: auto;
+      margin-right: -10%;
+      margin-left: 0;
+    }
+  }
+
+  @include breakpoint(large up) {
+    font-size: rem-calc(17);
+
+    blockquote {
+      margin: rem-calc(92) -10% rem-calc(68) auto;
+
+      p {
+        padding-right: 20%;
+
+        &:first-of-type {
+          position: relative;
+
+          &:before {
+            position: absolute;
+            right: 100%;
+            top: 0;
+            font-size: rem-calc(44);
+            margin-right: .125em;
+          }
+        }
+
+        &:last-of-type:after {
+          content: ' ”';
+        }
+      }
+
+      cite {
+        width: 195px;
+        font-size: rem-calc(11);
+      }
+    }
+  }
+}

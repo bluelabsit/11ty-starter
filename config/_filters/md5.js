@@ -16,8 +16,8 @@
  * @copyright Copyright (c) 2019 Xeader Studios
  * @license All right reserved
  */
-const crypto = require('crypto');
+const crypto = require('crypto')
 
 module.exports = function (text) {
-  return crypto.createHash('md5').update(text).digest('hex');
-};
+  return crypto.createHash('md5').update(text).digest('hex')
+}

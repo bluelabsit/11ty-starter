@@ -1,0 +1,90 @@
+<div class="fieldset fieldset--recurrence">
+
+    <div class="legend"><span>{% verbatim %}{{ recurrence_options.title }}{% endverbatim %}</span></div>
+
+    <div class="field">
+        {{ input('recurrence_firstname', 'Nome', {required:true, alpha_spaces:true}) }}
+    </div>
+
+    <div class="field">
+        {{ input('recurrence_lastname', 'Cognome', {required:true, alpha_spaces:true}) }}
+    </div>
+
+    <div class="field field--wide">
+        {{ label('recurrence_anniversary', 'Ricorrenza', {required: true}) }}
+        <select id="recurrence_anniversary"
+                v-model="recurrence_options.anniversary"
+                v-validate="{required: true}"
+                data-vv-as="Ricorrenza"
+                name="recurrence_anniversary">
+            <option disabled selected :value="undefined">Seleziona ricorrenza</option>
+            <option v-for="option in recurrence_options.options" :value="option.value">
+                {% verbatim %}{{ option.text }}{% endverbatim %}
+            </option>
+        </select>
+        {{ error('recurrence_anniversary') }}
+    </div>
+    <div class="field field--wide field--inline">
+        <label class="checkbox">
+            <input type="checkbox"
+                   v-model="recurrence_options.recurrence_ship_to"
+                   name="recurrence_ship_to" value="1">
+            <i></i>
+            <span>Vuoi inviare una comunicazione alla famiglia?</span>
+        </label>
+    </div>
+    <div class="fieldgroup shown" v-if="recurrence_options.recurrence_ship_to">
+        <div class="legend"><span>Destinazione spedizione</span></div>
+        <div class="field">
+            {{ input('recurrence_address_firstname', 'Nome', {required:true, alpha_spaces:true}) }}
+        </div>
+        <div class="field">
+            {{ input('recurrence_address_lastname', 'Cognome', {required:true, alpha_spaces:true}) }}
+        </div>
+        <div class="field">
+            {{ input('recurrence_address_email', 'Email', {required:true, email:true}, {type: 'email'}) }}
+        </div>
+        <div class="field">
+            {{ input('recurrence_address_senders', 'Partecipanti alla donazione', {required:true}) }}
+        </div>
+
+        <div class="field field--wide" v-if="recurrence.address_manual === false">
+            {{ label('recurrence_address', 'Indirizzo', {required: true}) }}
+            <google-autocomplete
+                    :title="'Indirizzo'"
+                    :v-validate="{required: true}"
+                    input_id="recurrence_address"
+                    :config="{type: ['address']}"
+                    placeholder="Inserisci una posizione"
+                    @set-address="setRecurrenceAddress"
+            >
+            </google-autocomplete>
+            {{ error('recurrence_address') }}
+            <button class="expander" type="button"
+                    @click="recurrence.address_manual = true">
+                Non trovi il tuo indirizzo? inseriscilo manualmente
+            </button>
+        </div>
+        <div class="fieldgroup shown" v-if="recurrence.address_manual">
+            <div class="field field--medium">
+                {{ input('recurrence_address_street', 'Indirizzo', {required: true}, {':value': 'recurrence.address.route'}) }}
+            </div>
+            <div class="field field--short">
+                {{ input('recurrence_address_civico', 'Civico', {required: true}, {':value': 'recurrence.address.street_number'}) }}
+            </div>
+            <div class="field field--medium">
+                {{ input('recurrence_address_city', 'Città', {required: true}, {':value': 'recurrence.address.locality'}) }}
+            </div>
+            <div class="field field--short">
+                {{ input('recurrence_address_postalcode', 'Cap', {required: true}, {':value': 'recurrence.address.postal_code'}) }}
+            </div>
+            <div class="field">
+                {{ input('recurrence_address_province', 'Provincia', {required: true}, {':value': 'recurrence.address.administrative_area_level_2'}) }}
+            </div>
+            <div class="field">
+                {{ input('recurrence_address_country', 'Paese', {required: true}, {':value': 'recurrence.address.country'}) }}
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,84 @@
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1f1f1;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  &,
+  &:after,
+  &:before{
+    box-sizing: border-box;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  @include breakpoint(large up) {
+    width: auto;
+  }
+}
+
+
+.btn {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  letter-spacing: rem-calc(5);
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  color: inherit;
+
+  &.to-form-btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    position: relative;
+    font-size: rem-calc(12);
+
+    &:before {
+      transition: $easeTransition;
+      background-color: $green;
+      height: 1px;
+      width: 40px;
+      content: '';
+      display: block;
+      margin-right: rem-calc(31);
+    }
+
+    &:hover {
+      &:before {
+        width: 50px;
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+    &.to-form-btn {
+      font-size: rem-calc(14);
+
+      &:before {
+        position: absolute;
+        left: 50px;
+        width: 1px;
+        height: 40px;
+        top: 220%;
+      }
+
+      &:hover {
+        &:before {
+          width: 1px;
+          height: 50px;
+        }
+      }
+    }
+
+  }
+}

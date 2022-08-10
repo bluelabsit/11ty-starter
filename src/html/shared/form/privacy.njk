@@ -1,0 +1,26 @@
+<p>Dopo aver preso visione dell’informativa il Soggetto interessato liberamente dichiara:
+    Desidero essere aggiornato, anche attraverso contenuti personalizzati in linea con i miei
+    interessi e le mie preferenze, sui progressi della ricerca scientifica e sulle attività svolte
+    da Fondazione Telethon e prendo atto che i miei dati saranno utilizzati in analisi e ricerche
+    riservate ai donatori (Attività di Fidelizzazione) *</p>
+
+<div class="field field--wide">
+    <div>
+        <label class="radio">
+            <input type="radio" name="privacy" id="privacy_yes"
+                   data-vv-as="Privacy"
+                   v-validate="{required: true, included: ['1', '0']}"
+                   value="1">
+            <i></i>
+            <span>Si</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="privacy" id="privacy_no"
+                   v-validate="{required: true, included: ['1', '0']}"
+                   value="0">
+            <i></i>
+            <span>No</span>
+        </label>
+        {{ error('privacy') }}
+    </div>
+</div>

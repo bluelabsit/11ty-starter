@@ -1,0 +1,27 @@
+{% from 'macros/helpers.njk' import sprite %}
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    {% set title = title | default('Fondazione Telethon') %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ description | default(title) }}{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" as="font" href="/fonts/Graphik-Regular-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/fonts/Graphik-RegularItalic-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/fonts/Graphik-Semibold-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/fonts/GraphikXCondensed-Medium-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/fonts/LyonDisplay-Medium-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" as="font" href="/fonts/LyonDisplay-MediumItalic-Web.woff2" type="font/woff" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css">
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    {% include "shared/app-icons.njk" %}
+    {% block head %}{% endblock %}
+  </head>
+  <body class="{{ bodyClass }}">
+    {% block content %}{% endblock %}
+    {% block javascript %}
+      <script src="/js/app.js"></script>
+    {% endblock %}
+  </body>
+</html>

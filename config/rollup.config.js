@@ -1,11 +1,21 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import json from '@rollup/plugin-json'
+import commonjs from '@rollup/plugin-commonjs'
+import { terser } from 'rollup-plugin-terser'
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'
 
-const plugins = [nodeResolve()];
+const plugins = [
+  json(),
+  nodeResolve(),
+  commonjs({
+    transformMixedEsModules: true,
+    ignoreDynamicRequires: true,
+    dynamicRequireTargets: ['./src/js/modules/header-links.js', './src/js/modules/thankyou.js'],
+  }),
+]
 if (isProd) {
-  plugins.push(terser());
+  plugins.push(terser())
 }
 
 export default {
@@ -13,6 +23,7 @@ export default {
   output: {
     file: './public/js/app.js',
     format: 'iife',
+    name: 'MyModule',
   },
   plugins,
-};
+}

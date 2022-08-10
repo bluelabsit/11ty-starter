@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+@mixin full-width-max{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: rem-calc(1680);
+}
+
+@mixin flnm(){
+  > *:first-child{
+    margin-top: 0;
+  }
+  > *:last-child{
+    margin-bottom: 0;
+  }
+}
+
+@mixin grid($withBlueBg: true) {
+  background-color: #fff;
+  width: 100%;
+  @include full-width-max;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+
+  @include breakpoint(large up) {
+    grid-template-columns: repeat(26, math.percentage(math.div(1,26)));
+    grid-template-rows: auto auto auto auto minmax(0, 1fr);
+
+    @if($withBlueBg == true){
+      &:before {
+        pointer-events: none;
+        display: block;
+        background-color: $blue-light;
+        content: ' ';
+        grid-column: 7 / 27;
+        grid-row: 1 / 4;
+      }
+    }
+  }
+}
+
+@mixin legacy-cta{
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 15px;
+  line-height: 1.8;
+
+  &--high a, span {
+    text-decoration: none;
+    color: inherit;
+    padding: 0 10px 0 70px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: padding .6s $ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background-color: $green;
+      top: 50%;
+      transition: width .6s $ease;
+    }
+
+    em {
+      font-style: normal;
+      display: inline-block;
+      line-height: 1.4;
+      padding: 0;
+      transition: color .6s cubic-bezier(0.290, 0.860, 0.290, 0.860),
+      background-color .6s cubic-bezier(0.290, 0.860, 0.290, 0.860),
+      padding .6s cubic-bezier(0.290, 0.860, 0.290, 0.860);
+    }
+
+  }
+
+  &--high a {
+    &:hover {
+      padding: 0 0 0 80px;
+
+      &::after {
+        width: 50px;
+      }
+    }
+  }
+}
+
+.legacy-cta{
+  @include legacy-cta
+}

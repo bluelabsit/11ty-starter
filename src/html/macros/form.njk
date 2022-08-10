@@ -1,0 +1,31 @@
+{% macro label(name, title, validation) %}
+    <label class="label" for="{{ name }}">
+        {{ title }}
+        {% if validation.required %}
+            <em title="Campo obbligatorio" class="required">*</em>
+        {% endif %}
+    </label>
+{% endmacro %}
+{% macro error(name) %}
+    <span class="error" v-show="errors.has('{{ name }}')">
+        {% verbatim %}{{ errors.first('{% endverbatim %}{{ name }}{% verbatim %}') }}{% endverbatim %}
+    </span>
+{% endmacro %}
+{% macro field(name, title, validation, attributes) %}
+    <input id="{{ name }}"
+           name="{{ name }}"
+           v-validate='{{ validation | dump | safe}}'
+           {% if validation.required %}required{% endif %}
+           data-vv-as="{{ title }}"
+    {% for attribute, attributeValue in attributes %}
+        {% if attribute !== 'type' %}
+            {{ attribute }}="{{ attributeValue }}"
+        {% endif %}
+    {% endfor %}
+    type="{{ attributes.type | default('text') }}">
+{% endmacro %}
+{% macro input(name, title, validation, attributes) %}
+    {{ label(name, title, validation) }}
+    {{ field(name, title, validation) }}
+    {{ error(name) }}
+{% endmacro %}

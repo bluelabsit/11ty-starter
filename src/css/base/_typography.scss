@@ -1,5 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+@font-face {
+  font-family: 'Graphik Web';
+  src: url('../fonts/Graphik-Regular-Web.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url('../fonts/Graphik-RegularItalic-Web.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url('../fonts/Graphik-Semibold-Web.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik X Condensed';
+  src: url('../fonts/GraphikXCondensed-Medium-Web.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lyon Web';
+  src: url('../fonts/LyonDisplay-Medium-Web.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lyon Web';
+  src: url('../fonts/LyonDisplay-MediumItalic-Web.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: $base-font-family;
+  color: $black;
+  line-height: 1.6;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: $base-font-family;
+  font-weight: 400;
+}
+
+@mixin heading-font {
+  font-family: $heading-font-family;
+  font-weight: normal;
+}
+
+picture{
+  display: block;
+}
+
+h1, h2, h3 {
+  @include heading-font;
+  color: $blue;
+  line-height: 1;
+}
+
+h6{
+  font-size: inherit;
+}
+
+h1 {
+  font-size: rem-calc(74);
 }

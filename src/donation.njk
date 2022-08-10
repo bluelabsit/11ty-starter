@@ -1,0 +1,45 @@
+{#
+  Nunjucks Templating!
+  Homepage: https://mozilla.github.io/nunjucks/
+  Docs: https://mozilla.github.io/nunjucks/api.html
+#}
+{% from "macros/form.njk" import input, label, field, error %}
+{% extends 'layouts/application.njk' %}
+{% set title = 'Donation' %}
+
+{% block content %}
+
+    {% include 'shared/layout/header.njk' %}
+
+    <div class="grid grid--main">
+        <main class="main-content">
+
+            {% include 'shared/hero.njk' %}
+
+            {% include 'shared/page-content.njk' %}
+
+            <form class="main-form" action="?"
+                  data-module="main-form"
+                  novalidate
+                  data-form="{{ form | dump }}"
+                  @submit="onSubmit">
+                <button class="follow-button btn btn--submit scroll-to"
+                        type="button" data-target=".main-form">Dona Ora</button>
+
+                {% include 'shared/form/donation.njk'  %}
+
+                {% include 'shared/form/info.njk'  %}
+
+                {% include 'shared/form/payment.njk'  %}
+
+            </form>
+        </main>
+    </div>
+
+    {% include 'shared/partners.njk' %}
+
+    {% include 'shared/pre-footer.njk' %}
+
+    {% include 'shared/layout/footer.njk' %}
+
+{% endblock %}

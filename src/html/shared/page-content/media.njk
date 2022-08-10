@@ -1,0 +1,12 @@
+<figure>
+    <picture>
+        <source media="(max-width: {{ breakpoints.small.max }})"
+                srcset="https://picsum.photos/seed/{{ title | slug }}2/512/512">
+        <source media="(max-width: {{ breakpoints.medium.max }})"
+                srcset="https://picsum.photos/seed/{{ title | slug }}2/768/694">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+             loading="lazy"
+             srcset="https://picsum.photos/seed/{{ title | slug }}2/1118/800" alt="telethon">
+    </picture>
+    <figcaption>Caption</figcaption>
+</figure>
