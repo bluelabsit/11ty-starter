@@ -20,7 +20,8 @@
     "format:js": "prettier '**/*.js' --write && eslint '**/*.js' --fix",
     "format:json": "prettier '**/*.json' --write",
     "format": "run-s format:*",
-    "lint": "eslint --ext .js ."
+    "lint": "eslint --ext .js .",
+    "serve": "npm run build; open 'http://localhost:8180';php -S localhost:8180 -t public"
   },
   "repository": {
     "type": "git",
