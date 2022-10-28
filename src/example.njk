@@ -1,0 +1,15 @@
+---
+title: Example Page
+meta_title: Example Page
+meta_description: Example page
+tags: page
+---
+{% extends "layouts/application.njk" %}
+
+{% block content %}
+  {% include "shared/layout/header.njk" %}
+  <div class='main-content'>
+    content here
+  </div>
+  {% include "shared/layout/footer.njk" %}
+{% endblock %}

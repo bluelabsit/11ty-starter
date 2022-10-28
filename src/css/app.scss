@@ -1,92 +1,15 @@
-@import "base/typography";
+@import "base/colors";
+@import "settings/variables";
 @import "base/reset";
+@import "base/functions";
+@import "base/mixins";
+@import "base/transitions";
 
-$accent: #2f4fcc;
-$text-color: #fff;
-$link-color: $text-color;
+@import "base/typography";
+@import "base/global";
+@import "base/layout";
+@import "base/header";
+@import "base/footer";
 
-.bl-eleventy {
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  background-color: $accent;
-  color: $text-color;
-  font-weight: 200;
-
-  * {
-    transition: all 0.3s ease;
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 32px;
-    width: 100%;
-    max-width: 1200px;
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 32px;
-
-      @media (min-width: 768px) {
-        font-size: 2.5rem;
-      }
-    }
-
-    small {
-      font-size: 0.5em;
-      display: block;
-    }
-
-    a {
-      font-weight: 500;
-      color: $link-color;
-
-      &:hover,
-      &:focus {
-        opacity: 0.75;
-        text-decoration-color: $accent;
-      }
-      &:focus {
-        text-decoration: underline;
-      }
-    }
-
-    .bluelabs-logo {
-      background: url("../img/logo.png") no-repeat;
-      padding-left: 1.75em;
-      background-size: contain;
-    }
-
-    img {
-      vertical-align: middle;
-      width: auto;
-      height: 1em;
-      display: inline-block;
-      margin-bottom: 0;
-      text-decoration: none;
-    }
-  }
-
-  &__intro {
-    text-align: center;
-
-    &__links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      border-top: 1px solid mix($text-color, $accent, 25%);
-      padding-top: 20px;
-
-      a {
-        display: flex;
-        column-gap: 0.5em;
-      }
-    }
-  }
-}
+// Remove this
+@import "bluelabs";

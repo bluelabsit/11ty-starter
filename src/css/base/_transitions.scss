@@ -1,0 +1,9 @@
+body{
+  will-change: opacity;
+  opacity: 0;
+  transition: $easeTransition;
+  transition-duration: 2s;
+  &.page-loaded{
+    opacity: 1;
+  }
+}

@@ -16,6 +16,6 @@
  * @copyright Copyright (c) 2019 Xeader Studios
  * @license All right reserved
  */
-const slug = require('slugify');
+const slug = require('slugify')
 
-module.exports = slug;
+module.exports = slug

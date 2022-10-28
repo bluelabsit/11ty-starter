@@ -1,0 +1,36 @@
+:root{
+  *{
+    outline-color: $black;
+    outline-offset: 5px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1f1f1;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  &,
+  &:after,
+  &:before{
+    box-sizing: border-box;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  @include breakpoint(large up) {
+    width: auto;
+  }
+}

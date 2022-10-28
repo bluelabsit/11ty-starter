@@ -1,0 +1,11 @@
+@use 'sass:math';
+.main-header,
+.main-footer,
+.grid {
+  @include grid;
+}
+
+.main-content {
+  @include grid;
+  grid-column: 1 /-1;
+}

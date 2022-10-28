@@ -17,15 +17,15 @@
  * @license All right reserved
  */
 
-const fs = require('fs');
-const { nanoid } = require('nanoid');
+const fs = require('fs')
+const { nanoid } = require('nanoid')
 
-const hash = nanoid();
+const hash = nanoid()
 
-const DATAFILE = 'src/data/csshash.json';
-const MINIFIED_CSSFILE = `app.${hash}.min.css`;
+const DATAFILE = 'src/data/csshash.json'
+const MINIFIED_CSSFILE = `app.${hash}.min.css`
 
 const jsonValue = `{
   "indexCSS": "${MINIFIED_CSSFILE}"
-}`;
-fs.writeFileSync(DATAFILE, jsonValue);
+}`
+fs.writeFileSync(DATAFILE, jsonValue)

@@ -1,5 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+body {
+  font-family: $base-font-family;
+  color: $black;
+  line-height: 1.6;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: $base-font-family;
+}
+
+@mixin heading-font {
+  font-family: $heading-font-family;
+}
+
+picture{
+  display: block;
+}
+
+h1, h2, h3 {
+  @include heading-font;
 }

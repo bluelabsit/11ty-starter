@@ -1,5 +1,5 @@
 module.exports = (...args) => {
-  console.log(...args);
+  console.log(...args)
 
-  return args;
-};
+  return args
+}
