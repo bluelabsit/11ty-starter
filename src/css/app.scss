@@ -1,21 +1,15 @@
 @import "base/colors";
 @import "settings/variables";
-// @import "../../node_modules/normalize-scss/sass/normalize";
+@import "base/reset";
 @import "base/functions";
 @import "base/mixins";
 @import "base/transitions";
 
-// @include normalize();
 @import "base/typography";
 @import "base/global";
 @import "base/layout";
 @import "base/header";
 @import "base/footer";
-@import "components/infographic";
-@import "base/page-content";
-@import "components/partners";
-@import "components/pie";
-@import "components/pre-footer";
-@import "base/forms";
-@import "base/thank-you";
-@import "components/latest-news";
+
+// Remove this
+@import "bluelabs";

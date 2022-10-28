@@ -1,3 +1,5 @@
+process = { env: {} }
+
 import './pageLoaded'
 import './scrollTo'
 

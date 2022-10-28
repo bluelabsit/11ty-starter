@@ -2,7 +2,7 @@
 meta_title: Bluelabs Eleventy starter kit
 meta_description: A static site generator for modern web development.
 ---
-{% extends "layouts/app.njk" %}
+{% extends "layouts/application.njk" %}
 
 {% block content %}
   <div class="bl-eleventy__container">
@@ -32,6 +32,10 @@ meta_description: A static site generator for modern web development.
           </a>
         </li>
       </ul>
+
+      {%- for page in collections.page -%}
+        <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+      {%- endfor -%}
 
     </div>
   </div>
